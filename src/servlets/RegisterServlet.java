@@ -23,9 +23,11 @@ public class RegisterServlet extends HttpServlet {
         if (status.equals("OK")) {
             resp.setStatus(HttpServletResponse.SC_OK);
             pw.print("Registered");
+            pw.close();
         } else {
             resp.setStatus(201);
             pw.print("Error:" + status);
+            pw.close();
         }
     }
 }

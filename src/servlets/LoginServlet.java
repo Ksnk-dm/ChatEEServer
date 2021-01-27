@@ -24,9 +24,11 @@ public class LoginServlet extends HttpServlet {
         if (status.equals("OK")) {
         resp.setStatus(HttpServletResponse.SC_OK);
         pw.print(login + " enter" );
+        pw.close();
     } else {
         resp.setStatus(201);
         pw.print("error: " + status);
+        pw.close();
     }
 
 }

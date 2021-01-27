@@ -1,12 +1,10 @@
 package servlets;
 
-import ua.kiev.prog.MessageList;
+import message.MessageList;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +24,7 @@ public class GetListServlet extends HttpServlet {
 			if (from < 0) from = 0;
 		} catch (Exception ex) {
 			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
             return;
 		}
 
@@ -36,7 +35,7 @@ public class GetListServlet extends HttpServlet {
 			OutputStream os = resp.getOutputStream();
             byte[] buf = json.getBytes(StandardCharsets.UTF_8);
 			os.write(buf);
-
+os.close();
 			//PrintWriter pw = resp.getWriter();
 			//pw.print(json);
 		}

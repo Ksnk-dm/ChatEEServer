@@ -21,6 +21,7 @@ public class AllUsersServlet extends HttpServlet {
     String users = userActs.allUsers();
         PrintWriter pw = resp.getWriter();
         pw.print("all users:" + users);
+        pw.close();
 
     }
 }
